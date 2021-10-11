@@ -1,0 +1,85 @@
+{
+  "$id": "wHOFAQs",
+  "$schema": "https://schema.yext.com/config/km/connector/v2",
+  "displayName": "WHO FAQs",
+  "entityType": "faq",
+  "source": {
+    "sourceConfig": {
+      "apiPullConfig": {
+        "requestType": "GET",
+        "url": "https://www.who.int/api/multimedias/questions?$filter\u003dParentId%20eq%20f141daff-3760-457c-9243-d13788bc9843\u0026sf_culture\u003d${{languageCode}}",
+        "paginationControl": {
+          "cursorPagination": {
+            "cursor": "\"@odata.nextLink\"",
+            "cursorType": "FULL_URL",
+            "detectCursorInHeader": false
+          }
+        },
+        "headers": {},
+        "queryParams": {},
+        "dataFormat": "JSON"
+      }
+    },
+    "baseSelector": {
+      "type": "JSON",
+      "header": "Entity Container",
+      "path": "value"
+    },
+    "selectors": [
+      {
+        "type": "JSON",
+        "header": "id",
+        "path": "Id"
+      },
+      {
+        "type": "JSON",
+        "header": "question",
+        "path": "Question"
+      },
+      {
+        "type": "JSON",
+        "header": "answer",
+        "path": "Answer"
+      }
+    ]
+  },
+  "transforms": [
+    {
+      "addColumn": {
+        "newColumnHeader": "Namespace",
+        "columnValue": "who_"
+      }
+    },
+    {
+      "mergeColumns": {
+        "inputHeaders": [
+          "Namespace",
+          "id"
+        ],
+        "newColumnHeader": "Id_2",
+        "delimiter": ""
+      }
+    }
+  ],
+  "mappings": [
+    {
+      "field": "question",
+      "header": "question",
+      "subfieldPath": []
+    },
+    {
+      "field": "answer",
+      "header": "answer",
+      "subfieldPath": []
+    },
+    {
+      "field": "entityId",
+      "header": "Id_2",
+      "subfieldPath": []
+    }
+  ],
+  "scheduleConfig": {
+    "useSourceSchedule": false,
+    "runMode": "DEFAULT"
+  }
+}
