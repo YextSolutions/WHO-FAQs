@@ -1,5 +1,5 @@
 {
-  "$id": "wHOFAQs",
+  "$id": "wHOFAQs_connector",
   "$schema": "https://schema.yext.com/config/km/connector/v2",
   "displayName": "WHO FAQs",
   "entityType": "faq",
