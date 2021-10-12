@@ -73,6 +73,11 @@
       "subfieldPath": []
     },
     {
+      "field": "name",
+      "header": "question",
+      "subfieldPath": []
+    },
+    {
       "field": "entityId",
       "header": "Id_2",
       "subfieldPath": []
