@@ -11,11 +11,11 @@
     },
     {
       "id": "question",
-      "required": true
+      "required": false
     },
     {
       "id": "name",
-      "required": false
+      "required": true
     },
     {
       "id": "folder",
