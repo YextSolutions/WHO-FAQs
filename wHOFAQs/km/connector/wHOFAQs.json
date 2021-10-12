@@ -40,6 +40,11 @@
         "type": "JSON",
         "header": "answer",
         "path": "Answer"
+      },
+      {
+        "type": "JSON",
+        "header": "name",
+        "path": "Question"
       }
     ]
   },
@@ -73,13 +78,13 @@
       "subfieldPath": []
     },
     {
-      "field": "name",
-      "header": "question",
+      "field": "entityId",
+      "header": "Id_2",
       "subfieldPath": []
     },
     {
-      "field": "entityId",
-      "header": "Id_2",
+      "field": "name",
+      "header": "name",
       "subfieldPath": []
     }
   ],
