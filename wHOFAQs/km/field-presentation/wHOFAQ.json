@@ -1,0 +1,48 @@
+{
+  "$id": "wHOFAQs_wHOFAQ",
+  "$schema": "https://schema.yext.com/config/km/field-presentation/v1",
+  "entityType": "wHOFAQs_wHOFAQ",
+  "displayName": "WHO FAQ",
+  "presentationEntries": [
+    {
+      "displayName": "Content",
+      "entryType": "DIVIDER"
+    },
+    {
+      "displayName": "Core Information",
+      "entryType": "SECTION",
+      "fields": [
+        {
+          "id": "question"
+        },
+        {
+          "id": "name",
+          "visibleOnAdd": true
+        },
+        {
+          "id": "answer"
+        },
+        {
+          "id": "entityId",
+          "visibleOnAdd": true
+        }
+      ]
+    },
+    {
+      "displayName": "Other",
+      "entryType": "DIVIDER"
+    },
+    {
+      "displayName": "Internal Use Only",
+      "entryType": "SECTION",
+      "fields": [
+        {
+          "id": "folder"
+        },
+        {
+          "id": "labels"
+        }
+      ]
+    }
+  ]
+}

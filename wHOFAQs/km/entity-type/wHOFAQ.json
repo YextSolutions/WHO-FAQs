@@ -1,0 +1,34 @@
+{
+  "$id": "wHOFAQs_wHOFAQ",
+  "$schema": "https://schema.yext.com/config/km/entity-type/v1",
+  "description": "",
+  "displayName": "WHO FAQ",
+  "enabled": true,
+  "field": [
+    {
+      "id": "answer",
+      "required": false
+    },
+    {
+      "id": "question",
+      "required": true
+    },
+    {
+      "id": "name",
+      "required": false
+    },
+    {
+      "id": "folder",
+      "required": false
+    },
+    {
+      "id": "labels",
+      "required": false
+    },
+    {
+      "id": "entityId",
+      "required": true
+    }
+  ],
+  "pluralDisplayName": "WHO FAQs"
+}
