@@ -1,0 +1,10 @@
+{
+  "$id": "wHOFAQs_wHOFAQ.default",
+  "$schema": "https://schema.yext.com/config/km/field-eligibility-group/v1",
+  "name": "WHO FAQ-default",
+  "entityType": "wHOFAQs_wHOFAQ",
+  "fields": [
+    "answer",
+    "question"
+  ]
+}
