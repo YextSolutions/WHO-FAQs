@@ -1,34 +1,7 @@
 {
   "$id": "wHOFAQs_wHOFAQ",
-  "$schema": "https://schema.yext.com/config/km/entity-type/v1",
+  "$schema": "https://schema.yext.com/config/km/entity-type/v2",
   "description": "",
   "displayName": "WHO FAQ",
-  "enabled": true,
-  "field": [
-    {
-      "id": "answer",
-      "required": false
-    },
-    {
-      "id": "question",
-      "required": false
-    },
-    {
-      "id": "name",
-      "required": true
-    },
-    {
-      "id": "folder",
-      "required": false
-    },
-    {
-      "id": "labels",
-      "required": false
-    },
-    {
-      "id": "entityId",
-      "required": true
-    }
-  ],
   "pluralDisplayName": "WHO FAQs"
 }
