@@ -1,100 +1,120 @@
 {
-  "$id": "wHOFAQs_connector",
-  "$schema": "https://schema.yext.com/config/km/connector/v2",
-  "displayName": "WHO FAQs",
-  "entityType": "wHOFAQs_wHOFAQ",
-  "source": {
-    "sourceConfig": {
-      "apiPullConfig": {
-        "requestType": "GET",
-        "url": "https://www.who.int/api/multimedias/questions?$filter\u003dParentId%20eq%20f141daff-3760-457c-9243-d13788bc9843\u0026sf_culture\u003d${{languageCode}}",
-        "paginationControl": {
-          "cursorPagination": {
-            "cursor": "\"@odata.nextLink\"",
-            "cursorType": "FULL_URL",
-            "detectCursorInHeader": false
-          }
+    "$id": "wHOFAQs_connector",
+    "$schema": "https://schema.yext.com/config/km/connector/v4",
+    "displayName": "WHO FAQs",
+    "entityTypes": [
+        "wHOFAQs_wHOFAQ"
+    ],
+    "source": {
+        "sourceConfig": {
+            "apiPullConfig": {
+                "requestType": "GET",
+                "url": "https://www.who.int/api/multimedias/questions?$filter=ParentId%20eq%20f141daff-3760-457c-9243-d13788bc9843&sf_culture=${{languageCode}}",
+                "paginationControl": {
+                    "cursorPagination": {
+                        "cursor": "\"@odata.nextLink\"",
+                        "cursorType": "FULL_URL",
+                        "detectCursorInHeader": false
+                    }
+                },
+                "headers": {},
+                "queryParams": {},
+                "dataFormat": "JSON"
+            }
         },
-        "headers": {},
-        "queryParams": {},
-        "dataFormat": "JSON"
-      }
+        "baseSelector": {
+            "type": "JSON",
+            "header": "Entity Container",
+            "path": "value"
+        },
+        "selectors": [
+            {
+                "type": "JSON",
+                "header": "id",
+                "path": "Id"
+            },
+            {
+                "type": "JSON",
+                "header": "question",
+                "path": "Question"
+            },
+            {
+                "type": "JSON",
+                "header": "answer",
+                "path": "Answer"
+            },
+            {
+                "type": "JSON",
+                "header": "name",
+                "path": "Question"
+            }
+        ]
     },
-    "baseSelector": {
-      "type": "JSON",
-      "header": "Entity Container",
-      "path": "value"
+    "transforms": [
+        {
+            "addColumn": {
+                "newColumnHeader": "Namespace",
+                "columnValue": "who_"
+            }
+        },
+        {
+            "mergeColumns": {
+                "inputHeaders": [
+                    "Namespace",
+                    "id"
+                ],
+                "newColumnHeader": "Id_2",
+                "delimiter": ""
+            }
+        },
+        {
+            "convertToRichText": {
+                "inputHeaders": {
+                    "headers": [
+                        "answer"
+                    ]
+                },
+                "inputFormat": "HTML"
+            }
+        }
+    ],
+    "mappings": [
+        {
+            "field": "question",
+            "header": "question",
+            "subfieldPath": []
+        },
+        {
+            "field": "answerV2",
+            "header": "answer",
+            "subfieldPath": [
+                {
+                    "name": "json"
+                }
+            ]
+        },
+        {
+            "field": "entityId",
+            "header": "Id_2",
+            "subfieldPath": []
+        },
+        {
+            "field": "name",
+            "header": "name",
+            "subfieldPath": []
+        }
+    ],
+    "scheduleConfig": {
+        "customSchedule": {
+            "timeZone": "America/New_York",
+            "startDate": "2021-09-14",
+            "startTime": "00:00",
+            "frequencyType": "DAILY"
+        },
+        "runMode": "COMPREHENSIVE"
     },
-    "selectors": [
-      {
-        "type": "JSON",
-        "header": "id",
-        "path": "Id"
-      },
-      {
-        "type": "JSON",
-        "header": "question",
-        "path": "Question"
-      },
-      {
-        "type": "JSON",
-        "header": "answer",
-        "path": "Answer"
-      },
-      {
-        "type": "JSON",
-        "header": "name",
-        "path": "Question"
-      }
-    ]
-  },
-  "transforms": [
-    {
-      "addColumn": {
-        "newColumnHeader": "Namespace",
-        "columnValue": "who_"
-      }
-    },
-    {
-      "mergeColumns": {
-        "inputHeaders": [
-          "Namespace",
-          "id"
-        ],
-        "newColumnHeader": "Id_2",
-        "delimiter": ""
-      }
+    "comprehensiveModeConfig": {
+        "comprehensiveSet": "ENTITIES_CREATED_BY_THIS_CONNECTOR",
+        "actionOnMissingEntities": "DELETE"
     }
-  ],
-  "mappings": [
-    {
-      "field": "question",
-      "header": "question",
-      "subfieldPath": []
-    },
-    {
-      "field": "answer",
-      "header": "answer",
-      "subfieldPath": []
-    },
-    {
-      "field": "entityId",
-      "header": "Id_2",
-      "subfieldPath": []
-    },
-    {
-      "field": "name",
-      "header": "name",
-      "subfieldPath": []
-    }
-  ],
-  "scheduleConfig": {
-    "customSchedule": {
-      "timeZone": "America/New_York",
-      "startDate": "2021-09-14",
-      "startTime": "00:00",
-      "frequencyType": "DAILY"
-    },
-    "runMode": "COMPREHENSIVE"
-  }
 }

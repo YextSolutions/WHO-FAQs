@@ -1,48 +1,48 @@
 {
-  "$id": "wHOFAQs_wHOFAQ",
-  "$schema": "https://schema.yext.com/config/km/field-presentation/v1",
-  "entityType": "wHOFAQs_wHOFAQ",
-  "displayName": "WHO FAQ",
-  "presentationEntries": [
-    {
-      "displayName": "Content",
-      "entryType": "DIVIDER"
-    },
-    {
-      "displayName": "Core Information",
-      "entryType": "SECTION",
-      "fields": [
+    "$id": "wHOFAQs_wHOFAQ",
+    "$schema": "https://schema.yext.com/config/km/field-presentation/v1",
+    "entityType": "wHOFAQs_wHOFAQ",
+    "displayName": "WHO FAQ",
+    "presentationEntries": [
         {
-          "id": "question"
+            "displayName": "Content",
+            "entryType": "DIVIDER"
         },
         {
-          "id": "name",
-          "visibleOnAdd": true
+            "displayName": "Core Information",
+            "entryType": "SECTION",
+            "fields": [
+                {
+                    "id": "question"
+                },
+                {
+                    "id": "name",
+                    "visibleOnAdd": true
+                },
+                {
+                    "id": "answerV2"
+                },
+                {
+                    "id": "entityId",
+                    "visibleOnAdd": true
+                }
+            ]
         },
         {
-          "id": "answer"
+            "displayName": "Other",
+            "entryType": "DIVIDER"
         },
         {
-          "id": "entityId",
-          "visibleOnAdd": true
+            "displayName": "Internal Use Only",
+            "entryType": "SECTION",
+            "fields": [
+                {
+                    "id": "folder"
+                },
+                {
+                    "id": "labels"
+                }
+            ]
         }
-      ]
-    },
-    {
-      "displayName": "Other",
-      "entryType": "DIVIDER"
-    },
-    {
-      "displayName": "Internal Use Only",
-      "entryType": "SECTION",
-      "fields": [
-        {
-          "id": "folder"
-        },
-        {
-          "id": "labels"
-        }
-      ]
-    }
-  ]
+    ]
 }
